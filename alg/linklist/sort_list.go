@@ -10,7 +10,11 @@ func SortList(head *ListNode) *ListNode {
  */
 func sortList(head, tail *ListNode) *ListNode {
 	// 截止条件，切分后不剩节点或剩一个节点默认有序
-	if head == nil || head.Next == nil {
+	if head == nil {
+		return head
+	}
+	if head.Next == tail {
+		head.Next = nil
 		return head
 	}
 	// 通过快慢指针去寻找中间为止，慢指针一次一步，快指针一次两步
@@ -55,7 +59,7 @@ func merge(head1, head2 *ListNode) *ListNode {
 	if q != nil {
 		dh.Next = q
 	}
-	return dh.Next
+	return dummyHead.Next
 	// --- 合并两个有序链表模式 ---
 }
 
